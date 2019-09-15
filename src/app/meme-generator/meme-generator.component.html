@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Top Text: </label>
+                <input class="form-control" [(ngModel)]="topText">
+            </div>
+            <div class="form-group">
+                <label>Bottom Text: </label>
+                <input class="form-control" [(ngModel)]="bottomText">
+            </div>
+
+            <div class="form-group" id="imagesDisplay">
+                <label>Image: </label>
+                <select name="" id="" style="position:relative; left: 100px" [(ngModel)]="imageName">
+                    <option *ngFor="let i of imageNameList;" value="{{i}}" [selected]="i == 'Memes'">{{ i }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group" id="uploadDisplay">
+            <img [src]="url" height="500"><br />
+            <input type='file' (change)="onSelectFile($event)"><br><br><br><br>
+            </div>
+
+
+            <div id="memeDisplay">hhh{{memeDisplay}}</div>
+
+
+            <div class="form-group">
+                <label>Background Color: </label>
+                <input type="color" [(ngModel)]="color"/>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div [ngStyle]="{'background-color':color}" id="result">
+                <h2 style="text-align: center; color: white; padding-top: 1em;">{{ topText }}</h2>
+                <img [src]="changeImage()" class=".img-responsive" width="200" height="200" style="display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;">
+                <h2 style="text-align: center; color: white; padding-bottom: 1em;">{{ bottomText }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- <label>
+            <input type="radio" ng-model="color.name" value="red">
+            Red
+          </label><br/>
+          <label>
+            <input type="radio" ng-model="color.name" ng-value="specialValue">
+            Green
+          </label><br/> -->
+
+          <button class="mode" id="image">Image</button>
+          <button class="mode selected" id="Upload">Upload</button>
+          <button id="reset">Reset</button><br><br><br>
+
+
+
+    <input type="button" id="btnSave" value="Save PNG"/>
+    <div id="img-out"></div>
+
+    
+
+
+
+    <!-- <div id="capture" style="padding: 10px; background: #f5da55">
+        <h4 style="color: #000; ">Hello world!</h4>
+    </div> -->
+</div>
