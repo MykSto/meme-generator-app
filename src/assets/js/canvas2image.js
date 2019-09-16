@@ -3,11 +3,6 @@
  * and save the image file
  */
 
- function myTest(a,b){
-	 var res = a + b;
-	 console.log(res);
- }
-
 var Canvas2Image = function () {
 
 	// check if support sth.
