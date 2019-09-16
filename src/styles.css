@@ -3,6 +3,8 @@ p {
     color: rgb(19, 168, 191);
 }
 
-html, body {
-    background-color: steelblue;
+body{
+	background-color: #232323;
+	margin: 0;
+	font-family: "", "Avenir";
 }

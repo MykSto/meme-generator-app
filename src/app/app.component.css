@@ -1,0 +1,92 @@
+.header {
+    text-align: center;
+}
+.header h1 {
+    font-family: serif;
+    font-size: 38px;
+    font-family: 'Orbitron', sans-serif;;
+}
+.content {
+    margin: 100px;
+}
+.margin25 {
+    margin: 25px;
+}
+.upload {
+    cursor: pointer;
+}
+
+.selected {
+	background: steelblue;
+	color: white;
+}
+
+.notSelected{
+    color:green;
+}
+
+h2 {
+    color: white;
+}
+
+#responseStatus{
+    color:white;
+}
+
+#uploadDisplay {
+margin-left: -15px;
+}
+
+#img-out {
+    text-align: center;
+}
+
+.container {
+	max-width: 800px;
+	margin: 20px auto;
+}
+
+h1 {
+	color: white;
+	text-align: center;
+	background: steelblue;
+	margin: 0;
+	font-weight: normal;
+	text-transform: uppercase;
+	line-height: 1.1;
+	padding: 20px 0px;
+}
+
+label, span {
+    font: bold;
+    font-size: 20px;
+    color: steelblue;
+}
+
+#btnUpload{
+    padding-bottom: 6px;
+    padding-right: 2px;
+}
+
+button, #btnSave {
+	border: none;
+	background: none;
+	text-transform: uppercase;
+	height: 100%;
+	font-weight: 700;
+	color: steelblue;
+	letter-spacing: 1px;
+	font-size: inherit;
+	transition: all 0.3s;
+	outline: none;
+}
+
+button:hover{
+	color:white;
+	background:steelblue;
+}
+
+#btnSave:hover{
+    color:white;
+    background:steelblue;
+}
