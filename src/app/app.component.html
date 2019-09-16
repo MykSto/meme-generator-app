@@ -1,42 +1,74 @@
-<div class = "container">
-    <div class = "row">
-      <div class = "col-md-12" style="text-align: center;">
-        <h2><span class="glyphicon glyphicon-fire" aria-hidden="true" style="color: crimson"></span> Meme Generator</h2>
-        <p class = "lead">"Make custom memes and share them with the world!"</p>
-      </div>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Orbitron:500&display=swap');
+</style>
+
+
+<div class="content">
+    <div class="header">
+        <h1>Meme Generator</h1>
     </div>
-    <button type="" id="test">Click me</button>
 </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Top Text: </label>
+                <input class="form-control" [(ngModel)]="topText">
+            </div>
+            <div class="form-group">
+                <label>Bottom Text: </label>
+                <input class="form-control" [(ngModel)]="bottomText">
+            </div>
 
-<!-- <input type='file' name="fileUpload" id="fileUpload"
-            multiple ng2FileSelect [uploader]="uploader">
-            <div>
-                <div class="row uploadList" *ngFor="let item of uploader.queue">
-                    <div class="col-sm-4">{{item.file.name}} </div>
-                    <div class="col-sm-4">
-                        <div class="progress">
-                            <div class="progress-bar bg-success" 
-                            [ngStyle]="{'width':item.progress+'%'}"></div>
+            <div class="form-group" id="imagesDisplay">
+                <label>Image: </label>
+                <select style="position:relative; left: 100px" [(ngModel)]="imageName">
+                    <option *ngFor="let i of imageNameList;" value="{{i}}" [selected]="i == 'Memes'">{{ i }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="row margin25" id="uploadDisplay">
+                <div class="col-md-10 col-xs-2">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text upload" (click)="upload()" id="btnUpload">Upload</span>
+                            <span id="responseStatus"></span>
+                        </div>
+                        <div class="custom-file">
+                            <form action="/api/upload" method="post" enctype="multipart/form-data">
+                                <input (change)="onSelectFile($event)" type="file" class="custom-file-input"
+                                    id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                            </form>
+                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                        <button type="button" class="btn btn-dark" (click)="item.upload()">Upload</button>
-                        <button type="button" class="btn btn-danger" (click)="item.remove()">Cancel</button>
-                    </div>
             </div>
-            <div class="row" *ngIf="uploader?.queue?.length > 0">
-                <button type="button" class="btn btn=primary"
-                (click)="uploader.uploadAll()"
-                >Upload All</button>
+
+            <div class="form-group">
+                <label>Background Color: </label>
+                <input type="color" [(ngModel)]="color" />
             </div>
-            <div class="row-card">
-              <h4>Download Section</h4>
-              <div class="row" *ngFor="let item of attachmentList">
-                  <div class="col-sm-7">{{item.originalname}}</div>
-                  <div class="col-sm-7"><button type="button" class="btn btn-primary"></button></div>
-                </div>
-            </div> -->
-  
-  <app-meme-generator></app-meme-generator>
+        </div>
+
+        <div class="col-md-6">
+            <div [ngStyle]="{'background-color':color}" id="result">
+                <h2 class="pt-4 text-center">{{ topText }}</h2>
+                <img [src]="changeImage()" [src]="url" class=".img-responsive" width="200" height="200" style="display: block;
+                            margin-left: auto;
+                            margin-right: auto;
+                            width: 90%;">
+                <h2 class="pb-4 text-center">{{ bottomText }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <button class="mode" id="image">Image</button>
+    <button class="mode selected" id="Upload">File</button>
+    <button class="mode" id="reset">Reset</button><br><br><br>
+    <input type="button" id="btnSave" value="Save PNG" />
+    <div id="img-out"></div>
+
+</div>
