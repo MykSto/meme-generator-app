@@ -29,3 +29,22 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Express.js/Angular Server Configurations
+
+Navigate to angular-node-express-api:
+`cd angular-node-express-api`
+
+Next, install node_modules:
+`npm install --save express`
+
+Additional modules:
+`npm install --save body-parser`
+`npm install --save connect-multiparty`
+
+If preconfigured dependencies occur, run the following command:
+`npm install`
+
+Go back `cd my-app` to my-app and run `npm install`
+
+Command to run epxress server is `node app.js` or already configured `npm start` 
