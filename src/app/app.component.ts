@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { HttpClient } from '@angular/common/http';
 declare const Canvas2Image: any;
-import * as html2canvas from 'html2canvas';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import * as html2canvas from 'html2canvas/dist/html2canvas';
 
 @Component({
   selector: 'app-root',
@@ -46,11 +45,11 @@ export class AppComponent implements OnInit {
 
       reader.readAsDataURL(event.target.files[0]); // read file
       reader.onload = (event) => { // readAsDataURL is completed
-        this.url = event.target.result; // *** comment before running
+        // this.url = event.target.result; // *** comment before running
       }
     }
   }
-  
+
   //Variables
   topText: string = "Top Meme Text";
   bottomText: string = "Bottom Meme Text";
@@ -93,7 +92,7 @@ export class AppComponent implements OnInit {
             $("#imagesDisplay").css("display", "none");
             $("#uploadDisplay").css("display", "block");
             $("img").css("display", "block");
-          } else if(this.textContent === "Reset"){
+          } else if (this.textContent === "Reset") {
             $("img").css("display", "none");
             $("canvas").remove();
           }
@@ -113,8 +112,8 @@ export class AppComponent implements OnInit {
         html2canvas(document.querySelector("#result")).then
           (function (canvas) {
             document.body.appendChild(canvas);
-            $("canvas").appendTo("#img-out");
-            return Canvas2Image.saveAsJPEG(canvas);
+            $(canvas).appendTo("#img-out");
+            return Canvas2Image.saveAsPNG;
           });
       });
     }
